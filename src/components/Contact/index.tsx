@@ -1,7 +1,11 @@
 "use client";
+import { useState } from "react";
 import NewsLatterBox from "./NewsLatterBox";
 
 const Contact = () => {
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
   return (
     <section id="contact" className="overflow-hidden py-16 md:py-20 lg:py-28">
       <div className="container">
@@ -15,16 +19,46 @@ const Contact = () => {
               <h2 className="mb-3 text-2xl font-bold text-black dark:text-white sm:text-3xl lg:text-2xl xl:text-3xl">
                 Get in Touch
               </h2>
+              {status === 'success' && (
+                <div className="mb-8 rounded-xs bg-green-500/10 p-4 text-green-600 dark:text-green-400">
+                  Thank you! Your message has been sent successfully.
+                </div>
+              )}
+              {status === 'error' && (
+                <div className="mb-8 rounded-xs bg-red-500/10 p-4 text-red-600 dark:text-red-400">
+                  Error: {errorMessage}. Please try again.
+                </div>
+              )}
               <form
-                onSubmit={e => {
+                onSubmit={async (e) => {
                   e.preventDefault();
+                  setStatus('sending');
                   const form = e.target as HTMLFormElement;
                   const name = (form.elements.namedItem('name') as HTMLInputElement)?.value || '';
                   const email = (form.elements.namedItem('email') as HTMLInputElement)?.value || '';
                   const company = (form.elements.namedItem('company') as HTMLInputElement)?.value || '';
-                  const message = (form.elements.namedItem('message') as HTMLInputElement)?.value || '';
-                  const mailto = `mailto:zjerome@traffic-intelligence.com?subject=Contact%20Form%20Submission&body=Name:%20${encodeURIComponent(name)}%0AEmail:%20${encodeURIComponent(email)}%0ACompany:%20${encodeURIComponent(company)}%0AMessage:%20${encodeURIComponent(message)}`;
-                  window.location.href = mailto;
+                  const message = (form.elements.namedItem('message') as HTMLTextAreaElement)?.value || '';
+
+                  try {
+                    const response = await fetch('/api/contact', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ name, email, company, message }),
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.ok) {
+                      setStatus('success');
+                      form.reset();
+                    } else {
+                      setStatus('error');
+                      setErrorMessage(data.error || 'Unknown error');
+                    }
+                  } catch (error) {
+                    setStatus('error');
+                    setErrorMessage('Network error');
+                  }
                 }}
               >
                 <div className="-mx-4 flex flex-wrap">
@@ -53,8 +87,8 @@ const Contact = () => {
                     </div>
                   </div>
                   <div className="w-full px-4">
-                    <button type="submit" className="rounded-xs bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark">
-                      Send Email
+                    <button type="submit" disabled={status === 'sending'} className="rounded-xs bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark disabled:opacity-50 disabled:cursor-not-allowed">
+                      {status === 'sending' ? 'Sending...' : 'Send Message'}
                     </button>
                   </div>
                 </div>
