@@ -117,7 +117,7 @@ const Footer = () => {
                 <ul>
                   <li>
                     <Link
-                      href="/blog"
+                      href="/#blog"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Blog
@@ -132,12 +132,12 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      href="/about"
+                    <a
+                      href="#features"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       About
-                    </Link>
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -184,12 +184,12 @@ const Footer = () => {
                 </h2>
                 <ul>
                   <li>
-                    <Link
-                      href="/contact"
+                    <a
+                      href="#contact"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Open Support Ticket
-                    </Link>
+                    </a>
                   </li>
                   <li>
                     <Link
@@ -200,12 +200,12 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      href="/about"
+                    <a
+                      href="#features"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       About
-                    </Link>
+                    </a>
                   </li>
                 </ul>
               </div>
