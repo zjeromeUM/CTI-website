@@ -8,6 +8,38 @@ export async function POST(req: NextRequest) {
   try {
     const { name, email, company, message } = await req.json();
 
+    const resendApiKey = (process.env.RESEND_API_KEY || "").trim();
+
+    // Path 1: Use Resend if API key is configured (simpler, avoids SMTP config)
+    if (resendApiKey) {
+      const res = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${resendApiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from: "no-reply@onresend.com",
+          to: "zjerome@traffic-intelligence.com",
+          subject: `Contact Form Submission from ${name}`,
+          reply_to: [email],
+          text: `Name: ${name}\nEmail: ${email}\nCompany: ${company}\n\nMessage:\n${message}`,
+          html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Company:</strong> ${company}</p><p><strong>Message:</strong></p><p>${message}</p>`,
+        }),
+      });
+
+      if (!res.ok) {
+        const detail = await res.text();
+        return NextResponse.json(
+          { ok: false, error: `Resend error: ${res.status} ${detail}` },
+          { status: 500 }
+        );
+      }
+
+      return NextResponse.json({ ok: true });
+    }
+
+    // Path 2: Fallback to SMTP via Nodemailer
     const host = (process.env.SMTP_HOST || "").trim();
     const port = Number((process.env.SMTP_PORT || "587").trim());
     const user = (process.env.SMTP_USER || "").trim();
@@ -51,7 +83,14 @@ export async function POST(req: NextRequest) {
   } catch (error) {
     console.error("Email error:", error);
     return NextResponse.json(
-      { ok: false, error: error instanceof Error ? error.message : String(error) },
+      {
+        ok: false,
+        error:
+          (error as any)?.response ||
+          (error instanceof Error ? error.message : String(error)),
+        hint:
+          "If using Microsoft 365, ensure Authenticated SMTP is enabled for the mailbox or use RESEND_API_KEY to send via API.",
+      },
       { status: 500 }
     );
   }
