@@ -30,6 +30,9 @@ const Contact = () => {
                 </div>
               )}
               <form
+                name="Contact"
+                method="POST"
+                data-netlify="true"
                 onSubmit={async (e) => {
                   e.preventDefault();
                   setStatus('sending');
@@ -40,20 +43,27 @@ const Contact = () => {
                   const message = (form.elements.namedItem('message') as HTMLTextAreaElement)?.value || '';
 
                   try {
-                    const response = await fetch('/api/contact', {
+                    // Netlify AJAX form submission: send as application/x-www-form-urlencoded
+                    const params = new URLSearchParams();
+                    params.append('form-name', 'Contact');
+                    params.append('name', name);
+                    params.append('email', email);
+                    params.append('company', company);
+                    params.append('message', message);
+
+                    const response = await fetch('/', {
                       method: 'POST',
-                      headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify({ name, email, company, message }),
+                      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                      body: params.toString(),
                     });
-                    
-                    const data = await response.json();
-                    
-                    if (data.ok) {
+
+                    if (response.ok) {
                       setStatus('success');
                       form.reset();
                     } else {
                       setStatus('error');
-                      setErrorMessage(data.error || 'Unknown error');
+                      const text = await response.text();
+                      setErrorMessage(text || 'Unknown error');
                     }
                   } catch (error) {
                     setStatus('error');

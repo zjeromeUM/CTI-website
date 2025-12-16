@@ -4,6 +4,7 @@ import Blog from "@/components/Blog";
 import Brands from "@/components/Brands";
 import ScrollUp from "@/components/Common/ScrollUp";
 import Contact from "@/components/Contact";
+import NetlifyForm from "@/components/Contact/NetlifyForm";
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
 import Pricing from "@/components/Pricing";
@@ -29,7 +30,8 @@ export default function Home() {
       <AboutSectionTwo />
   <Testimonials />
   <Blog />
-      <Contact />
+  <NetlifyForm />
+  <Contact />
     </>
   );
 }
