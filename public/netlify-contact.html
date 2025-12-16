@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Netlify Contact Form (for detection)</title>
+  </head>
+  <body>
+    <!-- This static page exists solely so Netlify can detect the Contact form at build time. -->
+    <form name="Contact" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="Contact" />
+      <p>
+        <label>Your Name: <input type="text" name="name" /></label>
+      </p>
+      <p>
+        <label>Your Email: <input type="email" name="email" /></label>
+      </p>
+      <p>
+        <label>Company: <input type="text" name="company" /></label>
+      </p>
+      <p>
+        <label>Message: <textarea name="message"></textarea></label>
+      </p>
+      <p>
+        <button type="submit">Send</button>
+      </p>
+    </form>
+  </body>
+</html>
