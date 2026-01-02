@@ -48,20 +48,7 @@ const Header = () => {
                 href="/"
                 className={`header-logo block w-full ${sticky ? "py-5 lg:py-2" : "py-8"}`}
               >
-                <img
-                  src="/images/logo/cti-navy-blue.svg"
-                  alt="Connected Traffic Intelligence"
-                  className="w-full dark:hidden"
-                  width={180}
-                  height={36}
-                />
-                <img
-                  src="/images/logo/cti-navy-blue.svg"
-                  alt="Connected Traffic Intelligence"
-                  className="hidden w-full dark:block"
-                  width={180}
-                  height={36}
-                />
+                <span className="text-2xl font-bold text-primary dark:text-white">Connected Traffic Intelligence</span>
               </Link>
             </div>
             <div className="flex w-full items-center justify-between px-4">
