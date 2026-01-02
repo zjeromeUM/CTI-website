@@ -48,14 +48,14 @@ const Header = () => {
                 href="/"
                 className={`header-logo block w-full ${sticky ? "py-5 lg:py-2" : "py-8"}`}
               >
-                <Image
+                <img
                   src="/images/logo/cti-navy-blue.svg"
                   alt="Connected Traffic Intelligence"
                   className="w-full dark:hidden"
                   width={180}
                   height={36}
                 />
-                <Image
+                <img
                   src="/images/logo/cti-navy-blue.svg"
                   alt="Connected Traffic Intelligence"
                   className="hidden w-full dark:block"
