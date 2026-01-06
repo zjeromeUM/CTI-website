@@ -43,8 +43,8 @@ const Header = () => {
       >
         <div className="container">
           <div className="relative -mx-4 flex items-center justify-between">
-            <div className="w-60 max-w-full px-4 xl:mr-12">
-              <Link href="/" className="mb-8 inline-block">
+            <div className="w-60 max-w-full px-4 xl:mr-12 flex items-center">
+              <Link href="/" className="inline-block">
                   <Image
                     src="/images/logo/cti-white.svg"
                     alt="logo"
