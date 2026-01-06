@@ -79,7 +79,7 @@ const Footer = () => {
                 cx="49.5"
                 cy="49.5"
                 r="49.5"
-                fill="#4A6CF7"
+                fill="#02A9F7"
               />
             </mask>
             <g mask="url(#mask0_94:899)">
@@ -145,7 +145,7 @@ const Footer = () => {
               width="66.6675"
               height="66.6675"
               transform="rotate(-22.9007 -41 26.9426)"
-              fill="url(#paint0_linear_94:889)"
+              fill="#88d6fa"
             />
             <rect
               x="-41"
@@ -153,27 +153,27 @@ const Footer = () => {
               width="66.6675"
               height="66.6675"
               transform="rotate(-22.9007 -41 26.9426)"
-              stroke="url(#paint1_linear_94:889)"
+              stroke="#88d6fa"
               strokeWidth="0.7"
             />
             <path
               opacity="0.3"
               d="M50.5215 7.42229L20.325 1.14771L46.2077 62.3249L77.1885 68.2073L50.5215 7.42229Z"
-              fill="url(#paint2_linear_94:889)"
+              fill="#88d6fa"
             />
             <path
               d="M50.5215 7.42229L20.325 1.14771L46.2077 62.3249L76.7963 68.2073L50.5215 7.42229Z"
-              stroke="url(#paint3_linear_94:889)"
+              stroke="#88d6fa"
               strokeWidth="0.7"
             />
             <path
               opacity="0.3"
               d="M17.9721 93.3057L-14.9695 88.2076L46.2077 62.325L77.1885 68.2074L17.9721 93.3057Z"
-              fill="url(#paint4_linear_94:889)"
+              fill="#88d6fa"
             />
             <path
               d="M17.972 93.3057L-14.1852 88.2076L46.2077 62.325L77.1884 68.2074L17.972 93.3057Z"
-              stroke="url(#paint5_linear_94:889)"
+              stroke="#88d6fa"
               strokeWidth="0.7"
             />
             <defs>
