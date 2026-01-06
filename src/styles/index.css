@@ -133,3 +133,27 @@ layer(base);
     @apply inline-flex;
   }
 }
+
+/* Force the page background to white everywhere (including when `.dark` is present).
+   This keeps component-level colors intact but ensures the overall page canvas is white.
+   We use !important to override Tailwind-generated `dark:` utilities that target
+   the html/body or root containers. */
+@layer base {
+  html,
+  body,
+  #__next,
+  main {
+    background-color: var(--color-white) !important;
+    color: var(--color-black) !important;
+  }
+
+  /* If the `.dark` class is present on html (site previously forced dark),
+     make sure it doesn't change the page canvas color. */
+  .dark html,
+  .dark body,
+  .dark #__next,
+  .dark main {
+    background-color: var(--color-white) !important;
+    color: var(--color-black) !important;
+  }
+}
