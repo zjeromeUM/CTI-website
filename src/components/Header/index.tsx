@@ -61,7 +61,7 @@ const Header = () => {
                   />
                 </Link>
             </div>
-            <div className="flex w-full items-center justify-between px-4">
+            <div className="flex w-full items-center justify-between px-4 py-4 lg:py-6">
               <div>
                 <button
                   onClick={navbarToggleHandler}
