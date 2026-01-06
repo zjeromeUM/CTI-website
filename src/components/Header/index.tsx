@@ -46,18 +46,18 @@ const Header = () => {
             <div className="w-60 max-w-full px-4 xl:mr-12">
               <Link href="/" className="mb-8 inline-block">
                   <Image
-                    src="/images/logo/cti-Symbol-NB.svg"
+                    src="/images/logo/cti-white.svg"
                     alt="logo"
                     className="w-full dark:hidden"
                     width={140}
-                    height={30}
+                    height={20}
                   />
                   <Image
-                    src="/images/logo/cti-Symbol-NB.svg"
+                    src="/images/logo/cti-white.svg"
                     alt="logo"
                     className="hidden w-full dark:block"
                     width={140}
-                    height={30}
+                    height={20}
                   />
                 </Link>
             </div>
