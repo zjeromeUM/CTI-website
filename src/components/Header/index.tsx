@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import ThemeToggler from "./ThemeToggler";
+// Theme toggling removed for single-mode site
 import menuData from "./menuData";
 
 const Header = () => {
@@ -104,9 +104,7 @@ const Header = () => {
                 </nav>
               </div>
               <div className="flex items-center justify-end pr-16 lg:pr-0">
-                <div>
-                  <ThemeToggler />
-                </div>
+                {/* single-mode: theme toggler removed */}
               </div>
             </div>
           </div>
