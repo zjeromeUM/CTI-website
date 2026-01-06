@@ -7,5 +7,11 @@ const menuData: Menu[] = [
     path: "/",
     newTab: false,
   },
+  {
+    id: 2,
+    title: "Contact Us",
+    path: "/contact-us",
+    newTab: false,
+  },
 ];
 export default menuData;
