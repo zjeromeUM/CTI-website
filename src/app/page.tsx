@@ -25,13 +25,12 @@ export default function Home() {
       <Hero />
       <Features />
       <Video />
-      <Brands />
       <AboutSectionOne />
       <AboutSectionTwo />
   <Testimonials />
   <Blog />
   <NetlifyForm />
-  <Contact />
+  {/* Contact moved to its own page: /contact-us */}
     </>
   );
 }

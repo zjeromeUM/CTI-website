@@ -1,0 +1,24 @@
+import Breadcrumb from "@/components/Common/Breadcrumb";
+import Contact from "@/components/Contact";
+
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Us | Connected Traffic Intelligence",
+  description: "Get in touch with Connected Traffic Intelligence",
+};
+
+const ContactUsPage = () => {
+  return (
+    <>
+      <Breadcrumb
+        pageName="Contact Us"
+        description="Reach out to us with questions, enquiries or partnership opportunities."
+      />
+
+      <Contact />
+    </>
+  );
+};
+
+export default ContactUsPage;
