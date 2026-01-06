@@ -55,7 +55,13 @@ const Footer = () => {
           </div>
 
           <div className="h-px w-full bg-linear-to-r from-transparent via-[#D2D8E183] to-transparent dark:via-[#959CB183]"></div>
+          <div className="py-8">
+            <p className="text-center text-base text-[#02a9f7]">
+              Connected Traffic Intelligence
+            </p>
+          </div>
         </div>
+
         <div className="absolute right-0 top-14 z-[-1]">
           <svg
             width="55"
@@ -64,7 +70,7 @@ const Footer = () => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <circle opacity="0.8" cx="49.5" cy="49.5" r="49.5" fill="#02A9F7" />
+            <circle opacity="0.8" cx="49.5" cy="49.5" r="49.5" fill="#959CB1" />
             <mask
               id="mask0_94:899"
               style={{ maskType: "alpha" }}
