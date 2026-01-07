@@ -7,6 +7,7 @@ import HomeIntro from "@/components/HomeIntro";
 import Testimonials from "@/components/Testimonials";
 import AboutUs from "@/components/About";
 import MediaCoverage from "@/components/MediaCoverage";
+import TechnologySpotlight from "@/components/TechnologySpotlight";
 import Biography from "@/components/Biography";
 import { Metadata } from "next";
 
@@ -23,6 +24,7 @@ export default function Home() {
       <Hero />
       <HomeIntro />
       <AboutUs />
+      <TechnologySpotlight />
       <MediaCoverage />
       <Biography />
   {/* Contact moved to its own page: /contact-us */}
