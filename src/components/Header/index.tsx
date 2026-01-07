@@ -23,8 +23,12 @@ const Header = () => {
     }
   };
   useEffect(() => {
-    window.addEventListener("scroll", handleStickyNavbar);
-  });
+  handleStickyNavbar();
+  window.addEventListener("scroll", handleStickyNavbar);
+  return () => window.removeEventListener("scroll", handleStickyNavbar);
+  }, []);
+
+
 
   // submenu handler (not used when only Home exists)
   const [openIndex, setOpenIndex] = useState(-1);
@@ -46,22 +50,15 @@ const Header = () => {
             <div className="w-60 max-w-full px-4 xl:mr-12 flex items-center">
               <Link href="/" className="inline-block">
                   <Image
-                    src="/images/logo/cti-white.svg"
-                    alt="logo"
-                    className="w-full dark:hidden"
-                    width={140}
-                    height={20}
-                  />
-                  <Image
-                    src="/images/logo/cti-white.svg"
-                    alt="logo"
-                    className="hidden w-full dark:block"
-                    width={140}
-                    height={20}
-                  />
-                </Link>
+                  src="/images/logo/cti-white.svg"
+                  alt="logo"
+                  className="w-full"
+                  width={140}
+                  height={20}
+                />
+              </Link>
             </div>
-            <div className="flex w-full items-center justify-between px-4 py-4 lg:py-6">
+            <div className="flex flex-1 items-center justify-between px-4 py-4 lg:py-6">
               <div>
                 <button
                   onClick={navbarToggleHandler}
