@@ -22,12 +22,12 @@ export default function AboutUs() {
               </div>
 
               <h2 className="mt-4 text-2xl font-bold text-[#00487c] md:text-3xl">
-                Smarter signal timing management across entire networks.
+                Transforming traffic networks through connected vehicle intelligence.
               </h2>
 
               <p className="mt-4 text-base leading-relaxed text-[#00487c]/80">
-                Connected Traffic Intelligence LLC (CTI) makes increasingly available vehicle telematics 
-                data (also known as probe or vehicle trajectory data) more accessible to traffic engineers. 
+                Connected Traffic Intelligence LLC (CTI) makes vehicle telematics 
+                data (probe or vehicle trajectory data) more accessible to traffic engineers. 
                 We specialize in integrating traffic flow principles with advancements in AI to enable 
                 transformative solutions to traffic signal performance monitoring, diagnostics, and optimization, 
                 even at low penetration rates. 
