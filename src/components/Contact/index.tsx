@@ -17,23 +17,23 @@ const Contact = () => {
       }}
     >
       {/* Overlay */}
-      <div className="pointer-events-none absolute inset-0 bg-black/25" />
+      <div className="pointer-events-none absolute inset-0 bg-black/20" />
 
       <div className="container relative z-10">
         <div className="mx-auto max-w-3xl px-4">
-          <div className="rounded-xs bg-white px-6 py-8 shadow-three sm:px-10 sm:py-10 dark:bg-gray-dark">
-            <h2 className="mb-6 text-center text-2xl font-bold text-[#00487c] dark:text-white">
+          <div className="rounded-xs border border-[#88d6fa]/60 bg-white/95 px-6 py-8 shadow-three backdrop-blur-sm sm:px-10 sm:py-10">
+            <h2 className="mb-6 text-center text-2xl font-bold text-[#00487c]">
               Get in Touch
             </h2>
 
             {status === "success" && (
-              <div className="mb-6 rounded-xs bg-[#88d6fa]/20 p-4 text-[#00487c]">
+              <div className="mb-6 rounded-xs border border-[#88d6fa] bg-[#88d6fa]/20 p-4 text-[#00487c]">
                 Thank you! Your message has been sent successfully.
               </div>
             )}
 
             {status === "error" && (
-              <div className="mb-6 rounded-xs bg-red-500/10 p-4 text-red-600 dark:text-red-400">
+              <div className="mb-6 rounded-xs border border-red-200 bg-red-50 p-4 text-red-700">
                 Error: {errorMessage}. Please try again.
               </div>
             )}
@@ -72,57 +72,57 @@ const Contact = () => {
             >
               <div className="space-y-6">
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-[#00487c] dark:text-white">
+                  <label className="mb-2 block text-sm font-medium text-[#00487c]">
                     Your Name
                   </label>
                   <input
                     name="name"
                     type="text"
                     placeholder="Enter your name"
-                    className="w-full rounded-xs border border-[#88d6fa] bg-[#f8f8f8] px-5 py-3 text-base outline-none focus:border-[#02a9f7]"
+                    className="w-full rounded-xs border border-[#88d6fa] bg-white px-5 py-3 text-base text-[#00487c] outline-none placeholder:text-[#00487c]/50 focus:border-[#02a9f7] focus:ring-2 focus:ring-[#02a9f7]/25"
                   />
                 </div>
 
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-[#00487c] dark:text-white">
+                  <label className="mb-2 block text-sm font-medium text-[#00487c]">
                     Your Email
                   </label>
                   <input
                     name="email"
                     type="email"
                     placeholder="Enter your email"
-                    className="w-full rounded-xs border border-[#88d6fa] bg-[#f8f8f8] px-5 py-3 text-base outline-none focus:border-[#02a9f7]"
+                    className="w-full rounded-xs border border-[#88d6fa] bg-white px-5 py-3 text-base text-[#00487c] outline-none placeholder:text-[#00487c]/50 focus:border-[#02a9f7] focus:ring-2 focus:ring-[#02a9f7]/25"
                   />
                 </div>
 
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-[#00487c] dark:text-white">
+                  <label className="mb-2 block text-sm font-medium text-[#00487c]">
                     Company
                   </label>
                   <input
                     name="company"
                     type="text"
                     placeholder="Enter your company name"
-                    className="w-full rounded-xs border border-[#88d6fa] bg-[#f8f8f8] px-5 py-3 text-base outline-none focus:border-[#02a9f7]"
+                    className="w-full rounded-xs border border-[#88d6fa] bg-white px-5 py-3 text-base text-[#00487c] outline-none placeholder:text-[#00487c]/50 focus:border-[#02a9f7] focus:ring-2 focus:ring-[#02a9f7]/25"
                   />
                 </div>
 
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-[#00487c] dark:text-white">
+                  <label className="mb-2 block text-sm font-medium text-[#00487c]">
                     Your Message
                   </label>
                   <textarea
                     name="message"
                     rows={4}
                     placeholder="Enter your message"
-                    className="w-full resize-none rounded-xs border border-[#88d6fa] bg-[#f8f8f8] px-5 py-3 text-base outline-none focus:border-[#02a9f7]"
+                    className="w-full resize-none rounded-xs border border-[#88d6fa] bg-white px-5 py-3 text-base text-[#00487c] outline-none placeholder:text-[#00487c]/50 focus:border-[#02a9f7] focus:ring-2 focus:ring-[#02a9f7]/25"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="w-full rounded-xs bg-[#00487c] py-3 text-base font-medium text-white transition hover:bg-[#02a9f7] disabled:cursor-not-allowed disabled:opacity-50"
+                  className="w-full rounded-xs bg-[#00487c] py-3 text-base font-medium text-white transition hover:bg-[#02a9f7] focus:outline-none focus:ring-2 focus:ring-[#02a9f7]/35 disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {status === "sending" ? "Sending…" : "Send Message"}
                 </button>
