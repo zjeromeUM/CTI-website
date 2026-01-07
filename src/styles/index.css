@@ -130,7 +130,7 @@ layer(base);
 
 @font-face {
   font-family: "Aerospace";
-  src: url("../../public/fonts/Aerospace.ttf") format("truetype");
+  src: url("fonts/Aerospace.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
