@@ -1,5 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap')
-layer(base);
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&display=swap");
+
+@import "tailwindcss";
+
+
+
 
 @import 'tailwindcss';
 
@@ -122,26 +127,17 @@ layer(base);
   }
 }
 
-/* @layer base {
+@layer base {
   body {
     font-family: "Inter", sans-serif;
   }
-} */
-
-@font-face {
-  font-family: "Aerospace";
-  src: url("public/fonts/Aerospace.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
 }
 
 @layer utilities {
-  .font-aerospace {
-    font-family: "Aerospace", "Inter", sans-serif;
+  .font-poppins {
+    font-family: "Poppins", "Inter", sans-serif;
   }
 }
-
 
 
 @layer components {

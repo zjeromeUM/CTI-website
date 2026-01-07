@@ -18,8 +18,9 @@ const HomeIntro = () => {
         <div className="mx-auto max-w-4xl text-center">
           <h1
             className='
-              font-aerospace
+              font-poppins
               font-bold
+              italic
               tracking-widest
               text-[#88d6fa]
               text-3xl
