@@ -16,10 +16,10 @@ const ContactUsPage = () => {
       <ScrollUp />
       <Hero />
 
-      <Breadcrumb
+      {/* <Breadcrumb
         pageName="Contact Us"
         description="Reach out to us with questions, enquiries or partnership opportunities."
-      />
+      /> */}
 
       <Contact />
     </>
