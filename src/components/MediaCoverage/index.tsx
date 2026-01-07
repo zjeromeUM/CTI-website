@@ -80,7 +80,7 @@ export default function MediaCoverage() {
             In the News
           </h2>
           <p className="mt-3 text-base text-[#00487c]/80">
-            Recent media coverage highlighting CTI’s detector-free approach to signal timing.
+            Recent media coverage highlighting our technology.
           </p>
           <div className="mx-auto mt-4 h-[2px] w-24 bg-[#88d6fa]" />
         </div>
@@ -118,7 +118,10 @@ export default function MediaCoverage() {
               <div className="mt-4 text-sm font-semibold text-[#02a9f7]">
                 Read / watch →
               </div>
-              <div className="mt-8 text-center">
+            </Link>
+          ))}
+        </div>
+        <div className="mt-8 text-center">
                 <Link
                   href="/news"
                   className="inline-block rounded-md border border-[#88d6fa] px-6 py-3 text-sm font-semibold text-[#00487c] transition hover:border-[#02a9f7]"
@@ -126,10 +129,6 @@ export default function MediaCoverage() {
                   View all media coverage
                 </Link>
               </div>
-
-            </Link>
-          ))}
-        </div>
       </div>
     </section>
   );
