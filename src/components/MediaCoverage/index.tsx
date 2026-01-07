@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 
 type CoverageItem = {
@@ -6,7 +9,6 @@ type CoverageItem = {
   source: string;
   date: string;
   href: string;
-  // Optional: add a thumbnail later if you want
 };
 
 const coverage: CoverageItem[] = [
@@ -68,10 +70,14 @@ const coverage: CoverageItem[] = [
   },
 ];
 
-const featuredCoverage = coverage.slice(0, 6);
-
+const DEFAULT_LIMIT = 6;
 
 export default function MediaCoverage() {
+  const [expanded, setExpanded] = useState(false);
+
+  const itemsToShow = expanded ? coverage : coverage.slice(0, DEFAULT_LIMIT);
+  const canExpand = coverage.length > DEFAULT_LIMIT;
+
   return (
     <section className="bg-white py-10 md:py-14">
       <div className="container">
@@ -86,7 +92,7 @@ export default function MediaCoverage() {
         </div>
 
         <div className="grid gap-5 md:grid-cols-3">
-          {featuredCoverage.map((item) => (
+          {itemsToShow.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -111,9 +117,7 @@ export default function MediaCoverage() {
                 {item.title}
               </h3>
 
-              <p className="mt-2 text-sm text-[#00487c]/75">
-                {item.source}
-              </p>
+              <p className="mt-2 text-sm text-[#00487c]/75">{item.source}</p>
 
               <div className="mt-4 text-sm font-semibold text-[#02a9f7]">
                 Read / watch →
@@ -121,14 +125,24 @@ export default function MediaCoverage() {
             </Link>
           ))}
         </div>
-        <div className="mt-8 text-center">
-                <Link
-                  href="/news"
-                  className="inline-block rounded-md border border-[#88d6fa] px-6 py-3 text-sm font-semibold text-[#00487c] transition hover:border-[#02a9f7]"
-                >
-                  View all media coverage
-                </Link>
-              </div>
+
+        {canExpand && (
+          <div className="mt-10 text-center">
+            <button
+              type="button"
+              onClick={() => setExpanded((prev) => !prev)}
+              className="inline-flex items-center gap-2 rounded-md border border-[#88d6fa] px-6 py-3 text-sm font-semibold text-[#00487c] transition hover:border-[#02a9f7]"
+            >
+              {expanded ? "Show fewer items" : "View all media coverage"}
+              <span
+                className={`transition-transform ${expanded ? "rotate-180" : ""}`}
+                aria-hidden="true"
+              >
+                ↓
+              </span>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
