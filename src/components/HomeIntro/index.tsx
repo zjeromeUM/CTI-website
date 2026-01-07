@@ -20,6 +20,7 @@ const HomeIntro = () => {
               font-bold
               italic
               tracking-widest
+              whitespace-nowrap
               text-[#88d6fa]
               text-3xl
               sm:text-4xl
