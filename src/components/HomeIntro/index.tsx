@@ -18,7 +18,8 @@ const HomeIntro = () => {
         <div className="mx-auto max-w-4xl text-center">
           <h1
             className='
-              ${aerospace.className}
+              font-aerospace
+              font-bold
               tracking-widest
               text-[#88d6fa]
               text-3xl
