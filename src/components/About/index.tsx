@@ -22,13 +22,15 @@ export default function AboutUs() {
               </div>
 
               <h2 className="mt-4 text-2xl font-bold text-[#00487c] md:text-3xl">
-                Smarter signal timing—at scale, without roadside detection.
+                Smarter signal timing management across entire networks.
               </h2>
 
               <p className="mt-4 text-base leading-relaxed text-[#00487c]/80">
-                Connected Traffic Intelligence (CTI) exists to help agencies manage traffic
-                signal timing proactively, using connected/probe vehicle data to monitor,
-                diagnose, and improve operations across entire networks.
+                Connected Traffic Intelligence LLC (CTI) makes increasingly available vehicle telematics 
+                data (also known as probe or vehicle trajectory data) more accessible to traffic engineers. 
+                We specialize in integrating traffic flow principles with advancements in AI to enable 
+                transformative solutions to traffic signal performance monitoring, diagnostics, and optimization, 
+                even at low penetration rates. 
               </p>
 
               <div className="mt-6 h-[2px] w-24 bg-[#02a9f7]" />
@@ -41,7 +43,7 @@ export default function AboutUs() {
               </div>
 
               <p className="mt-4 text-base leading-relaxed text-[#00487c]/80">
-                CTI’s platform turns vehicle trajectory data into actionable insights—so
+                CTI’s platform turns vehicle telematics data into actionable insights—so
                 agencies can understand performance, identify where timing is breaking down,
                 and target retiming efforts where they’ll have the greatest impact.
               </p>
@@ -49,15 +51,19 @@ export default function AboutUs() {
               <ul className="mt-5 space-y-3 text-sm text-[#00487c]/80">
                 <li className="flex gap-3">
                   <span className="mt-1 h-2 w-2 rounded-full bg-[#02a9f7]" />
-                  Network-wide visibility using connected/probe vehicle data
+                  Network-wide visibility using connected and probe vehicle data
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-1 h-2 w-2 rounded-full bg-[#02a9f7]" />
-                  Detector-free monitoring and timing support
+                  Hardware-free monitoring and signal timing management
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-1 h-2 w-2 rounded-full bg-[#02a9f7]" />
-                  Prioritization tools to focus resources on the right corridors
+                  Timing plan optimization with as little as 5% penetration
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-[#02a9f7]" />
+                  Prioritize tools to focus resources on the right intersections
                 </li>
               </ul>
 
@@ -66,13 +72,10 @@ export default function AboutUs() {
                   Agencies
                 </span>
                 <span className="rounded-full border border-[#88d6fa] px-3 py-1 text-xs font-semibold text-[#00487c]">
-                  MPOs
-                </span>
-                <span className="rounded-full border border-[#88d6fa] px-3 py-1 text-xs font-semibold text-[#00487c]">
                   Consultants
                 </span>
                 <span className="rounded-full border border-[#88d6fa] px-3 py-1 text-xs font-semibold text-[#00487c]">
-                  Technology partners
+                  Vendors
                 </span>
               </div>
             </div>
