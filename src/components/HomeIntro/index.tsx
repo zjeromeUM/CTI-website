@@ -11,7 +11,7 @@ const HomeIntro = () => {
       }}
     >
       {/* Dark overlay */}
-      <div className="pointer-events-none absolute inset-0 bg-black/30" />
+      <div className="pointer-events-none absolute inset-0 bg-black/20" />
 
       <div className="container">
         <div className="mx-auto max-w-4xl text-center">

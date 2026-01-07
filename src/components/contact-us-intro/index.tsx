@@ -2,7 +2,7 @@ const ContactIntro = () => {
   return (
     <section
       id="contact"
-      className="relative z-10 overflow-hidden py-20 md:py-24 lg:py-32"
+      className="relative z-10 overflow-hidden py-8 md:py-10 lg:py-12"
       style={{
         backgroundImage: "url('/images/hero/background.png')",
         backgroundSize: "cover",
@@ -11,7 +11,7 @@ const ContactIntro = () => {
       }}
     >
       {/* Dark overlay */}
-      <div className="pointer-events-none absolute inset-0 bg-black/30" />
+      <div className="pointer-events-none absolute inset-0 bg-black/20" />
 
       <div className="container relative z-10">
         <p
