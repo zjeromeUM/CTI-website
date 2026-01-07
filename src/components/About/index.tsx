@@ -89,7 +89,7 @@ export default function AboutUs() {
           </p> */}
 
           {/* CTA */}
-          <p className="mx-auto mt-6 text-center text-base font-medium text-white">
+          <p className="mx-auto mt-6 text-center text-lg md:text-xl font-medium text-white">
             Interested in how our solutions can help your agency?{" "}
             <a
               href="/contact-us"
