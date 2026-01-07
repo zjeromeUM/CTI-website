@@ -11,6 +11,7 @@ import HomeIntro from "@/components/HomeIntro";
 import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import Video from "@/components/Video";
+import MediaCoverage from "@/components/MediaCoverage";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export default function Home() {
       <ScrollUp />
       <Hero />
       <HomeIntro />
+      <MediaCoverage />
       <Features />
       <Video />
       <AboutSectionOne />
