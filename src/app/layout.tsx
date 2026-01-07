@@ -7,8 +7,11 @@ import { Inter } from "next/font/google";
 import { usePathname } from "next/navigation";
 import "../styles/index.css";
 import { Providers } from "./providers";
+import { aerospace } from "./fonts";
 
 const inter = Inter({ subsets: ["latin"] });
+
+<body className={`${inter.className} ${aerospace.variable} bg-[#FCFCFC]`}></body>
 
 export default function RootLayout({
   children,

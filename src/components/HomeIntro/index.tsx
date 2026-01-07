@@ -1,8 +1,7 @@
 const HomeIntro = () => {
   return (
     <section
-      id="contact"
-      className="relative z-10 overflow-hidden py-20 md:py-24 lg:py-32"
+      className="relative z-10 overflow-hidden py-8 md:py-10 lg:py-12"
       style={{
         backgroundImage: "url('/images/hero/background.png')",
         backgroundSize: "cover",
@@ -13,13 +12,13 @@ const HomeIntro = () => {
       {/* Dark overlay */}
       <div className="pointer-events-none absolute inset-0 bg-black/20" />
 
-      <div className="container">
+      <div className="container relative z-10">
         <div className="mx-auto max-w-4xl text-center">
           <h1
             className="
               font-[var(--font-aerospace)]
               tracking-widest
-              text-white
+              text-[#88d6fa]
               text-3xl
               sm:text-4xl
               md:text-5xl
@@ -31,7 +30,7 @@ const HomeIntro = () => {
             Connected Traffic Intelligence
           </h1>
 
-          <div className="mx-auto mt-5 h-[2px] w-24 bg-[#02a9f7]" />
+          <div className="mx-auto mt-5 h-[2px] w-24 bg-[#88d6fa]" />
         </div>
       </div>
     </section>
