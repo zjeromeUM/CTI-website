@@ -7,6 +7,7 @@ import Contact from "@/components/Contact";
 import NetlifyForm from "@/components/Contact/NetlifyForm";
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
+import HomeIntro from "@/components/HomeIntro";
 import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import Video from "@/components/Video";
@@ -22,7 +23,8 @@ export default function Home() {
   return (
     <>
       <ScrollUp />
-      <Hero title="Connected Traffic Intelligence" />
+      <Hero />
+      <HomeIntro />
       <Features />
       <Video />
       <AboutSectionOne />
