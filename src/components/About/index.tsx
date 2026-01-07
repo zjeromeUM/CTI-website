@@ -22,7 +22,7 @@ export default function AboutUs() {
               </div>
 
               <h2 className="mt-4 text-2xl font-bold text-[#00487c] md:text-3xl">
-                Transforming traffic networks through connected vehicle intelligence.
+                Transforming traffic networks through connected vehicles.
               </h2>
 
               <p className="mt-4 text-base leading-relaxed text-[#00487c]/80">

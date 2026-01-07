@@ -27,7 +27,7 @@ const Footer = () => {
                   />
                 </Link>
                 <p className="mb-9 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-                  Transforming traffic networks through connected vehicle intelligence.
+                  Connected Traffic Intelligence - Transforming traffic networks through connected vehicles
                 </p>
                 <div className="flex items-center">
                   <a
