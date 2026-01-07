@@ -35,10 +35,10 @@ const Header = () => {
   return (
     <>
       <header
-      className={`header top-0 left-0 z-40 flex w-full items-center ${
+      className={`header fixed top-0 left-0 z-9999 flex w-full items-center transition-colors duration-300 ${
         sticky
-          ? "fixed z-9999 bg-[#00487c]/95 shadow-sticky transition"
-          : "absolute bg-transparent"
+          ? "bg-[#00487c]/95 shadow-sticky"
+          : "bg-transparent"
       }`}
       >
         <div className="container">
