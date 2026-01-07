@@ -13,6 +13,7 @@ const Hero = () => {
         backgroundImage: "url('/images/hero/background.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
+        backgroundAttachment: "fixed",
       }}
     >
       {/* Dark overlay */}
