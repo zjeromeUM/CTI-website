@@ -1,6 +1,18 @@
 const HomeIntro = () => {
   return (
-    <section className="relative z-10 -mt-24 pb-10 md:-mt-28 md:pb-14 lg:-mt-32 lg:pb-16">
+    <section
+      id="contact"
+      className="relative z-10 overflow-hidden py-20 md:py-24 lg:py-32"
+      style={{
+        backgroundImage: "url('/images/hero/background.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      {/* Dark overlay */}
+      <div className="pointer-events-none absolute inset-0 bg-black/30" />
+
       <div className="container">
         <div className="mx-auto max-w-4xl text-center">
           <h1
