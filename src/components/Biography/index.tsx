@@ -15,7 +15,7 @@ const Biography = () => {
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   quality={95}
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               </div>
 
