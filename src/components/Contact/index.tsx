@@ -17,6 +17,7 @@ const Contact = () => {
         backgroundAttachment: 'fixed',
       }}
     >
+      <div className="absolute inset-0 bg-black/20" />
       <div className="container">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4 lg:w-7/12 xl:w-8/12">
