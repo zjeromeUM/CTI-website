@@ -11,6 +11,7 @@ import HomeIntro from "@/components/HomeIntro";
 import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import Video from "@/components/Video";
+import AboutUs from "@/components/About";
 import MediaCoverage from "@/components/MediaCoverage";
 import { Metadata } from "next";
 
@@ -26,6 +27,7 @@ export default function Home() {
       <ScrollUp />
       <Hero />
       <HomeIntro />
+      <AboutUs />
       <MediaCoverage />
       <Features />
       <Video />
