@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <>
       <ScrollUp />
-      <Hero />
+      <Hero title="Connected Traffic Intelligence" />
       <Features />
       <Video />
       <AboutSectionOne />

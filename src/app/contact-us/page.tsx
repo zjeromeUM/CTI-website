@@ -14,7 +14,7 @@ const ContactUsPage = () => {
   return (
     <>
       <ScrollUp />
-      <Hero showContent={false} />
+      <Hero />
 
       <Breadcrumb
         pageName="Contact Us"
