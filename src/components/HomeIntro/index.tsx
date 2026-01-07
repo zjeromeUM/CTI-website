@@ -1,5 +1,3 @@
-import { aerospace } from "@/app/fonts";
-
 const HomeIntro = () => {
   return (
     <section
