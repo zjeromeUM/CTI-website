@@ -1,11 +1,22 @@
 export default function AboutUs() {
   return (
-    <section className="bg-white py-10 md:py-14">
+    <section
+      className="relative z-10 overflow-hidden py-8 md:py-10 lg:py-12"
+      style={{
+        backgroundImage: "url('/images/hero/background.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      {/* Dark overlay */}
+      <div className="pointer-events-none absolute inset-0 bg-black/20" />
+
       <div className="container">
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
             {/* Left: Vision */}
-            <div className="rounded-xl border border-[#88d6fa]/60 bg-white p-6 shadow-sm md:p-8">
+            <div className="rounded-xl border border-[#88d6fa]/60 bg-white/90 backdrop-blur-sm p-6 shadow-sm">
               <div className="inline-flex items-center rounded-full bg-[#88d6fa]/20 px-3 py-1 text-xs font-semibold text-[#00487c]">
                 Our Vision
               </div>
@@ -24,7 +35,7 @@ export default function AboutUs() {
             </div>
 
             {/* Right: What we do */}
-            <div className="rounded-xl border border-[#88d6fa]/60 bg-white p-6 shadow-sm md:p-8">
+            <div className="rounded-xl border border-[#88d6fa]/60 bg-white/90 backdrop-blur-sm p-6 shadow-sm">
               <div className="inline-flex items-center rounded-full bg-[#02a9f7]/15 px-3 py-1 text-xs font-semibold text-[#00487c]">
                 What We Do
               </div>
