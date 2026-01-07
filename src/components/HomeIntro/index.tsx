@@ -33,7 +33,7 @@ const HomeIntro = () => {
             Connected Traffic Intelligence
           </h1>
 
-          <div className="mx-auto mt-5 h-[2px] w-24 bg-[#88d6fa]" />
+          <div className="mx-auto mt-5 h-[2px] w-[100px] bg-[#02a9f7]" />
         </div>
       </div>
     </section>
