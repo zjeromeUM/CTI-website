@@ -14,7 +14,7 @@ const coverage: CoverageItem[] = [
     type: "video",
     title: "University of Michigan testing traffic system for faster commute",
     source: "YouTube",
-    date: "Video",
+    date: "November 13, 2025",
     href: "https://www.youtube.com/watch?v=6kQK63vWTQw",
   },
   {
@@ -26,12 +26,50 @@ const coverage: CoverageItem[] = [
   },
   {
     type: "article",
+    title: "New traffic light system could dramatically reduce congestion",
+    source: "Jalopnik",
+    date: "Nov 29, 2025",
+    href: "https://www.jalopnik.com/2036036/new-traffic-light-system-reducing-congestion/",
+  },
+  {
+    type: "article",
+    title: "Traffic technology deployed across metro Detroit to shrink commutes",
+    source: "FOX 2 Detroit",
+    date: "Nov 13, 2025",
+    href: "https://www.fox2detroit.com/news/traffic-technology-deployed-metro-detroit-shrinking-commutes-reducing-stops.amp",
+  },
+  {
+    type: "article",
     title: "University of Michigan traffic light study in Oakland County",
     source: "Detroit Free Press",
     date: "Nov 6, 2025",
     href: "https://www.freep.com/story/money/cars/2025/11/06/university-of-michigan-traffic-light-study-oakland-county/87073946007/",
   },
+  {
+    type: "article",
+    title: "Connected Traffic Intelligence deploys traffic signal technology",
+    source: "Crain’s Detroit Business",
+    date: "Nov 5, 2025",
+    href: "https://www.crainsdetroit.com/technology/connected-traffic-intelligence-deploys-traffic-signal-tech",
+  },
+  {
+    type: "article",
+    title: "How Oakland County and U-M are using GPS data to recalibrate traffic lights",
+    source: "WXYZ Channel 7",
+    date: "Nov 5, 2025",
+    href: "https://www.wxyz.com/news/how-oakland-county-u-m-are-using-gps-data-to-recalibrate-traffic-lights-reduce-crashes-wait-times",
+  },
+  {
+    type: "article",
+    title: "University of Michigan researchers use vehicle GPS data to cut traffic delays",
+    source: "ClickOnDetroit (WDIV)",
+    date: "Oct 31, 2025",
+    href: "https://www.clickondetroit.com/all-about-ann-arbor/2025/10/31/university-of-michigan-researchers-use-vehicle-gps-data-to-cut-traffic-delays-in-oakland-county/",
+  },
 ];
+
+const featuredCoverage = coverage.slice(0, 6);
+
 
 export default function MediaCoverage() {
   return (
@@ -48,7 +86,7 @@ export default function MediaCoverage() {
         </div>
 
         <div className="grid gap-5 md:grid-cols-3">
-          {coverage.map((item) => (
+          {featuredCoverage.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -80,6 +118,15 @@ export default function MediaCoverage() {
               <div className="mt-4 text-sm font-semibold text-[#02a9f7]">
                 Read / watch →
               </div>
+              <div className="mt-8 text-center">
+                <Link
+                  href="/news"
+                  className="inline-block rounded-md border border-[#88d6fa] px-6 py-3 text-sm font-semibold text-[#00487c] transition hover:border-[#02a9f7]"
+                >
+                  View all media coverage
+                </Link>
+              </div>
+
             </Link>
           ))}
         </div>
