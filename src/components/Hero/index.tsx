@@ -13,7 +13,7 @@ const Hero = ({ title }: HeroProps) => {
         // Keep enough top padding so the fixed header doesn't cover content
         hasText
           ? "pt-[140px] pb-24 md:pt-[170px] md:pb-32"
-          : "pt-[120px] pb-12 md:pt-[140px] md:pb-16",
+          : "pt-[120px] pb-8 md:pt-[140px] md:pb-16",
       ].join(" ")}
       style={{
         backgroundImage: "url('/images/hero/background.png')",
