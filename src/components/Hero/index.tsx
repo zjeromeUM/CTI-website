@@ -12,7 +12,7 @@ const Hero = ({ title }: HeroProps) => {
         "relative z-10 overflow-hidden",
         // Keep enough top padding so the fixed header doesn't cover content
         hasText
-          ? "pt-[140px] pb-24 md:pt-[170px] md:pb-32"
+          ? "pt-[140px] pb-18 md:pt-[170px] md:pb-32"
           : "pt-[120px] pb-8 md:pt-[140px] md:pb-16",
       ].join(" ")}
       style={{
