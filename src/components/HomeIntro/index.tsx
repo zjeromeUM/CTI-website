@@ -1,3 +1,5 @@
+import { aerospace } from "@/app/fonts";
+
 const HomeIntro = () => {
   return (
     <section
@@ -15,8 +17,8 @@ const HomeIntro = () => {
       <div className="container relative z-10">
         <div className="mx-auto max-w-4xl text-center">
           <h1
-            className="
-              font-[var(--font-aerospace)]
+            className='
+              ${aerospace.className}
               tracking-widest
               text-[#88d6fa]
               text-3xl
@@ -25,7 +27,7 @@ const HomeIntro = () => {
               lg:text-6xl
               leading-tight
               drop-shadow
-            "
+            '
           >
             Connected Traffic Intelligence
           </h1>
