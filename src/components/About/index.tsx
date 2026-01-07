@@ -22,7 +22,7 @@ export default function AboutUs() {
               </div>
 
               <h2 className="mt-4 text-2xl font-bold text-[#00487c] md:text-3xl">
-                Transforming traffic networks through connected vehicles.
+                Transforming traffic networks through connected vehicles
               </h2>
 
               <p className="mt-4 text-base leading-relaxed text-[#00487c]/80">
@@ -82,10 +82,22 @@ export default function AboutUs() {
           </div>
 
           {/* Bottom line */}
-          <p className="mx-auto mt-8 max-w-4xl text-center text-sm leading-relaxed text-[#00487c]/75">
+          {/* <p className="mx-auto mt-8 max-w-4xl text-center text-sm leading-relaxed text-[#00487c]/75">
             Our goal is simple: make signal timing management more scalable, data-driven, and
             responsive—so communities spend less time in traffic and agencies can do more
             with the resources they already have.
+          </p> */}
+
+          {/* CTA */}
+          <p className="mx-auto mt-6 text-center text-base font-medium text-white">
+            Interested in how our solutions can help your agency?{" "}
+            <a
+              href="/contact-us"
+              className="underline decoration-[#02a9f7] underline-offset-4 transition hover:text-[#88d6fa]"
+            >
+              Contact us
+            </a>{" "}
+            to start the conversation.
           </p>
         </div>
       </div>
