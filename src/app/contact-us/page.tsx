@@ -1,3 +1,5 @@
+import ScrollUp from "@/components/Common/ScrollUp";
+import Hero from "@/components/Hero";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import Contact from "@/components/Contact";
 
@@ -11,6 +13,9 @@ export const metadata: Metadata = {
 const ContactUsPage = () => {
   return (
     <>
+      <ScrollUp />
+      <Hero />
+
       <Breadcrumb
         pageName="Contact Us"
         description="Reach out to us with questions, enquiries or partnership opportunities."
