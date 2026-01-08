@@ -1,10 +1,6 @@
-
-import Blog from "@/components/Blog";
 import ScrollUp from "@/components/Common/ScrollUp";
-import NetlifyForm from "@/components/Contact/NetlifyForm";
 import Hero from "@/components/Hero";
 import HomeIntro from "@/components/HomeIntro";
-import Testimonials from "@/components/Testimonials";
 import AboutUs from "@/components/About";
 import MediaCoverage from "@/components/MediaCoverage";
 import TechnologySpotlight from "@/components/TechnologySpotlight";
