@@ -73,6 +73,7 @@ const Contact = () => {
               // }}
             >
               <input type="hidden" name="form-name" value="Contact" />
+              <input type="hidden" name="redirect" value="/contact-us?success=true" />
               <div className="space-y-6">
                 <div>
                   <label className="mb-2 block text-sm font-medium text-[#00487c]">
