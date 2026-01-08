@@ -90,30 +90,6 @@ const Contact = () => {
                   console.warn("AJAX submit failed, attempting native fallback", err);
                 }
 
-                // 1b) Also POST to our server forwarder so submissions are recorded server-side
-                try {
-                  const obj: Record<string, string> = {};
-                  for (const [k, v] of Array.from(formData.entries())) {
-                    obj[String(k)] = String(v);
-                  }
-
-                  // fire-and-forget but await so we can report errors
-                  const forwardRes = await fetch("/api/netlify-forward", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ formName: "Contact", fields: obj, page: window.location.href }),
-                  });
-
-                  if (!forwardRes.ok) {
-                    const txt = await forwardRes.text();
-                    console.warn("Netlify forwarder returned non-OK", forwardRes.status, txt);
-                  } else {
-                    console.log("Server-forward to Netlify succeeded");
-                  }
-                } catch (fwdErr) {
-                  console.warn("Server forward to Netlify failed", fwdErr);
-                }
-
                 // 2) Native form fallback: always submit via hidden iframe so Netlify receives a native POST
                 try {
                   const iframeName = "netlify-hidden-iframe";
