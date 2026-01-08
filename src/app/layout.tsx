@@ -20,7 +20,8 @@ export default function RootLayout({
 
   // Pages where you want the header to overlay the hero
   const heroPages = ["/", "/contact-us"];
-  const isHeroPage = heroPages.includes(pathname);
+  const isHeroPage = pathname ? heroPages.includes(pathname) : false;
+
 
   return (
     <html suppressHydrationWarning lang="en">
