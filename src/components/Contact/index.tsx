@@ -47,9 +47,16 @@ const Contact = () => {
                 setStatus("sending");
 
                 const form = e.target as HTMLFormElement;
-                const params = new URLSearchParams(new FormData(form) as any);
+                const formData = new FormData(form);
+
+                // Prepare application/x-www-form-urlencoded body
+                const params = new URLSearchParams();
+                for (const [k, v] of Array.from(formData.entries())) {
+                  params.append(String(k), String(v));
+                }
                 params.append("form-name", "Contact");
 
+                // 1) Try AJAX submit for best UX
                 try {
                   const response = await fetch("/", {
                     method: "POST",
@@ -60,13 +67,61 @@ const Contact = () => {
                   if (response.ok) {
                     setStatus("success");
                     form.reset();
+                    return;
                   } else {
                     setStatus("error");
                     setErrorMessage("Submission failed");
                   }
-                } catch {
-                  setStatus("error");
-                  setErrorMessage("Network error");
+                } catch (err) {
+                  // keep going to the native fallback below
+                  console.warn("AJAX submit failed, attempting native fallback", err);
+                }
+
+                // 2) Native form fallback: submit via hidden iframe so Netlify receives a real POST
+                try {
+                  const iframeName = "netlify-hidden-iframe";
+                  let iframe = document.getElementById(iframeName) as HTMLIFrameElement | null;
+                  if (!iframe) {
+                    iframe = document.createElement("iframe");
+                    iframe.name = iframeName;
+                    iframe.id = iframeName;
+                    iframe.style.display = "none";
+                    document.body.appendChild(iframe);
+                  }
+
+                  const nativeForm = document.createElement("form");
+                  nativeForm.action = "/";
+                  nativeForm.method = "POST";
+                  nativeForm.target = iframeName;
+                  // Ensure Netlify recognizes the POST
+                  nativeForm.setAttribute("name", "Contact");
+                  nativeForm.setAttribute("data-netlify", "true");
+
+                  // Append fields as hidden inputs
+                  for (const [k, v] of Array.from(formData.entries())) {
+                    const input = document.createElement("input");
+                    input.type = "hidden";
+                    input.name = String(k);
+                    input.value = String(v);
+                    nativeForm.appendChild(input);
+                  }
+
+                  const hidden = document.createElement("input");
+                  hidden.type = "hidden";
+                  hidden.name = "form-name";
+                  hidden.value = "Contact";
+                  nativeForm.appendChild(hidden);
+
+                  document.body.appendChild(nativeForm);
+                  nativeForm.submit();
+
+                  setTimeout(() => {
+                    try {
+                      document.body.removeChild(nativeForm);
+                    } catch {}
+                  }, 3000);
+                } catch (err) {
+                  console.warn("Native Netlify fallback failed", err);
                 }
               }}
             >
