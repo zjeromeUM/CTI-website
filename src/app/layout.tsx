@@ -7,6 +7,7 @@ import { Inter } from "next/font/google";
 import { usePathname } from "next/navigation";
 import "../styles/index.css";
 import { Providers } from "./providers";
+import NetlifyForm from "@/components/Contact/NetlifyForm";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +27,8 @@ export default function RootLayout({
       <head />
 
       <body className={`bg-[#FCFCFC] dark:bg-black ${inter.className}`}>
+        <NetlifyForm />
+
         <Providers>
           <Header />
 

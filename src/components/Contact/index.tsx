@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 
+
 const Contact = () => {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -70,6 +71,7 @@ const Contact = () => {
                 }
               }}
             >
+              <input type="hidden" name="form-name" value="Contact" />
               <div className="space-y-6">
                 <div>
                   <label className="mb-2 block text-sm font-medium text-[#00487c]">
