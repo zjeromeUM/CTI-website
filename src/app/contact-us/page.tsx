@@ -2,7 +2,7 @@ import ScrollUp from "@/components/Common/ScrollUp";
 import Hero from "@/components/Hero";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import ContactIntro from "@/components/contact-us-intro";
-import Contact from "@/components/Contact/index_form";
+import Contact from "@/components/Contact/index";
 
 import { Metadata } from "next";
 
