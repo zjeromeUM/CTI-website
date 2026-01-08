@@ -8,19 +8,17 @@ const Contact = () => {
   // Progressive submit handler: try AJAX for better UX, but fall back to a native POST
   // so Netlify Forms reliably receives submissions if the AJAX request fails.
   const handleSubmit = (e: any) => {
-    // Use native form POST as the primary path so Netlify reliably records submissions.
-    // We'll attach a hidden iframe and set the form target to it, then allow the
-    // browser to perform the native POST (do NOT call preventDefault()).
-    if (status === "sending") {
-      // Prevent double submissions by stopping the browser submission if already sending
-      e.preventDefault();
-      return;
-    }
-
+    // Controlled native submission: programmatically submit to a hidden iframe and
+    // detect onload; if iframe doesn't load within timeout (likely blocked by an
+    // extension), fall back to opening a cloned form in a new tab so Netlify still
+    // receives the native POST.
+    e.preventDefault();
+    if (status === "sending") return;
     setStatus("sending");
 
     const form = e.target as HTMLFormElement;
     const iframeName = "netlify-hidden-iframe";
+
     let iframe = document.getElementById(iframeName) as HTMLIFrameElement | null;
     if (!iframe) {
       iframe = document.createElement("iframe");
@@ -30,14 +28,103 @@ const Contact = () => {
       document.body.appendChild(iframe);
     }
 
-    // Point the form submission to the hidden iframe so page doesn't navigate.
+    let loaded = false;
+    const cleanup = () => {
+      try {
+        if (iframe && iframe.parentNode) iframe.parentNode.removeChild(iframe);
+      } catch {}
+    };
+
+    // onload indicates the POST completed and the iframe received the response.
+    const onload = () => {
+      loaded = true;
+      setStatus("success");
+      try {
+        form.reset();
+      } catch {}
+      // cleanup after a short delay so Netlify finished processing
+      setTimeout(cleanup, 1500);
+      clearTimeout(fallbackT);
+    };
+
+    const onerror = (err: any) => {
+      console.warn("Iframe error during form submit", err);
+    };
+
     try {
-      form.target = iframeName;
+      iframe.addEventListener("load", onload);
+      iframe.addEventListener("error", onerror);
     } catch (err) {
-      console.warn("Unable to set form target to hidden iframe, native submit will proceed normally", err);
+      // ignore
     }
 
-    // Do not call e.preventDefault(); allow native submit to proceed.
+    // Submit the form programmatically (native POST) targeting the hidden iframe.
+    try {
+      form.target = iframeName;
+      // Use requestAnimationFrame to ensure target is applied before submit
+      requestAnimationFrame(() => {
+        try {
+          form.submit();
+        } catch (submitErr) {
+          console.warn("Programmatic form.submit() failed, will attempt fallback", submitErr);
+        }
+      });
+    } catch (err) {
+      console.warn("Failed to set target/submit to iframe, will attempt fallback", err);
+    }
+
+    // If iframe doesn't report load within 2500ms, assume it's blocked and fall back.
+    const fallbackT = setTimeout(() => {
+      if (loaded) return;
+      console.warn("Iframe did not load in time — using _blank fallback to ensure delivery");
+
+      // Clone form and submit to a new tab so the native POST goes to Netlify.
+      try {
+        const formData = new FormData(form);
+        const clone = document.createElement("form");
+        clone.method = "POST";
+        clone.action = window.location.origin + "/";
+        clone.target = "_blank";
+        clone.style.display = "none";
+
+        for (const [k, v] of Array.from(formData.entries())) {
+          const input = document.createElement("input");
+          input.type = "hidden";
+          input.name = String(k);
+          input.value = String(v as any);
+          clone.appendChild(input);
+        }
+
+        const hidden = document.createElement("input");
+        hidden.type = "hidden";
+        hidden.name = "form-name";
+        hidden.value = "Contact";
+        clone.appendChild(hidden);
+
+        document.body.appendChild(clone);
+        clone.submit();
+        setTimeout(() => {
+          try {
+            document.body.removeChild(clone);
+          } catch {}
+        }, 3000);
+      } catch (err) {
+        console.error("_blank fallback submit failed", err);
+        setStatus("error");
+        setErrorMessage("Submission failed; please try again or disable interfering extensions.");
+      } finally {
+        try {
+          // remove listeners and iframe if present
+          if (iframe) {
+            iframe.removeEventListener("load", onload);
+            iframe.removeEventListener("error", onerror);
+            try {
+              if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+            } catch {}
+          }
+        } catch {}
+      }
+    }, 2500);
   };
 
   return (
