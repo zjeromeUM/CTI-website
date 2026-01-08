@@ -31,7 +31,7 @@ const Footer = () => {
                 </p>
                 <div className="flex items-center">
                   <a
-                    href="/"
+                    href="https://www.linkedin.com/company/connected-traffic-intelligence/"
                     aria-label="LinkedIn"
                     target="_blank"
                     rel="noopener noreferrer"
