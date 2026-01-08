@@ -5,6 +5,41 @@ const Contact = () => {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
+  // Progressive submit handler: try AJAX for better UX, but fall back to a native POST
+  // so Netlify Forms reliably receives submissions if the AJAX request fails.
+  const handleSubmit = (e: any) => {
+    // Use native form POST as the primary path so Netlify reliably records submissions.
+    // We'll attach a hidden iframe and set the form target to it, then allow the
+    // browser to perform the native POST (do NOT call preventDefault()).
+    if (status === "sending") {
+      // Prevent double submissions by stopping the browser submission if already sending
+      e.preventDefault();
+      return;
+    }
+
+    setStatus("sending");
+
+    const form = e.target as HTMLFormElement;
+    const iframeName = "netlify-hidden-iframe";
+    let iframe = document.getElementById(iframeName) as HTMLIFrameElement | null;
+    if (!iframe) {
+      iframe = document.createElement("iframe");
+      iframe.name = iframeName;
+      iframe.id = iframeName;
+      iframe.style.display = "none";
+      document.body.appendChild(iframe);
+    }
+
+    // Point the form submission to the hidden iframe so page doesn't navigate.
+    try {
+      form.target = iframeName;
+    } catch (err) {
+      console.warn("Unable to set form target to hidden iframe, native submit will proceed normally", err);
+    }
+
+    // Do not call e.preventDefault(); allow native submit to proceed.
+  };
+
   return (
     <section
       id="contact-form"
@@ -38,7 +73,7 @@ const Contact = () => {
               </div>
             )}
 
-            <form name="Contact" method="POST" data-netlify="true" action="/">
+            <form name="Contact" method="POST" data-netlify="true" action="/" onSubmit={handleSubmit}>
               {/* Ensure Netlify sees the form-name on runtime native submits */}
               <input type="hidden" name="form-name" value="Contact" />
               <div className="space-y-6">
