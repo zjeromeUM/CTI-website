@@ -126,15 +126,39 @@ const Contact = () => {
                   hidden.value = "Contact";
                   nativeForm.appendChild(hidden);
 
-                  document.body.appendChild(nativeForm);
-                  console.log("Netlify native fallback submitting to:", nativeForm.action);
-                  nativeForm.submit();
-
-                  setTimeout(() => {
+                  // Try to submit invisibly via iframe. Some browsers or extensions may
+                  // interfere with iframes; if that fails, fall back to opening a new tab
+                  // (native POST) so Netlify still receives the submission.
+                  let submitted = false;
+                  try {
+                    document.body.appendChild(nativeForm);
+                    console.log("Netlify native fallback submitting to:", nativeForm.action);
+                    nativeForm.submit();
+                    submitted = true;
+                  } catch (submitErr) {
+                    console.warn("Hidden iframe submission failed, will try opening a new tab", submitErr);
                     try {
-                      document.body.removeChild(nativeForm);
-                    } catch {}
-                  }, 3000);
+                      // remove any partially appended form
+                      try {
+                        document.body.removeChild(nativeForm);
+                      } catch {}
+                      // open in new tab: set target to _blank and append+submit
+                      nativeForm.target = "_blank";
+                      document.body.appendChild(nativeForm);
+                      nativeForm.submit();
+                      submitted = true;
+                    } catch (tabErr) {
+                      console.error("Fallback to opening new tab also failed", tabErr);
+                    }
+                  }
+
+                  if (submitted) {
+                    setTimeout(() => {
+                      try {
+                        document.body.removeChild(nativeForm);
+                      } catch {}
+                    }, 3000);
+                  }
                 } catch (err) {
                   console.warn("Native Netlify fallback failed", err);
                 }
