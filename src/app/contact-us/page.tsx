@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import ContactIntro from "@/components/contact-us-intro";
 import Contact from "@/components/Contact";
+import NetlifyForm from "@/components/Contact/NetlifyForm";
 
 import { Metadata } from "next";
 
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
 const ContactUsPage = () => {
   return (
     <>
+      <NetlifyForm />
       <ScrollUp />
       <Hero />
       <ContactIntro />
