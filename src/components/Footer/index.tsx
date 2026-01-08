@@ -61,6 +61,21 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Right-side decorative image */}
+        <div className="hidden w-full px-4 md:block md:w-1/2 lg:w-4/12 xl:w-5/12">
+          <div className="flex justify-end">
+            <Image
+              src="/images/logo/cti-brain.svg" 
+              alt="Footer accent graphic"
+              width={25}
+              height={25}
+              className="opacity-60"
+            />
+          </div>
+        </div>
+
+
+
         <div className="absolute right-0 top-14 z-[-1]">
           <svg
             width="55"
@@ -93,7 +108,7 @@ const Footer = () => {
                 cx="49.5"
                 cy="49.5"
                 r="49.5"
-                fill="url(#paint0_radial_94:899)"
+                fill="#02A9F7"
               />
               <g opacity="0.8" filter="url(#filter0_f_94:899)">
                 <circle cx="53.8676" cy="26.2061" r="20.3824" fill="white" />
