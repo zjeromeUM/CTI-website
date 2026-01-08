@@ -1,81 +1,133 @@
-import NewsLatterBox from "./NewsLatterBox";
+"use client";
+import { useState } from "react";
 
 const Contact = () => {
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
   return (
-    <section id="contact" className="overflow-hidden py-16 md:py-20 lg:py-28">
-      <div className="container">
-        <div className="-mx-4 flex flex-wrap">
-          <div className="w-full px-4 lg:w-7/12 xl:w-8/12">
-            <div
-              className="mb-12 rounded-xs bg-white px-8 py-11 shadow-three dark:bg-gray-dark sm:p-[55px] lg:mb-5 lg:px-8 xl:p-[55px]"
-              data-wow-delay=".15s
-              "
+    <section
+      id="contact-form"
+      className="relative z-10 overflow-hidden py-10 md:py-14 lg:py-16"
+      style={{
+        backgroundImage: "url('/images/hero/background.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      {/* Overlay */}
+      <div className="pointer-events-none absolute inset-0 bg-black/20" />
+
+      <div className="container relative z-10">
+        <div className="mx-auto max-w-3xl px-4">
+          <div className="rounded-xs border border-[#88d6fa]/60 bg-white/95 px-6 py-8 shadow-three backdrop-blur-sm sm:px-10 sm:py-10">
+            <h2 className="mb-6 text-center text-2xl font-bold text-[#00487c]">
+              Get in Touch
+            </h2>
+
+            {status === "success" && (
+              <div className="mb-6 rounded-xs border border-[#88d6fa] bg-[#88d6fa]/20 p-4 text-[#00487c]">
+                Thank you! Your message has been sent successfully.
+              </div>
+            )}
+
+            {status === "error" && (
+              <div className="mb-6 rounded-xs border border-red-200 bg-red-50 p-4 text-red-700">
+                Error: {errorMessage}. Please try again.
+              </div>
+            )}
+
+            <form
+              name="Contact"
+              method="POST"
+              data-netlify="true"
+              onSubmit={async (e) => {
+                e.preventDefault();
+                setStatus("sending");
+
+                const form = e.target as HTMLFormElement;
+                const params = new URLSearchParams(new FormData(form) as any);
+                params.append("form-name", "Contact");
+
+                try {
+                  const response = await fetch("/", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: params.toString(),
+                  });
+
+                  if (response.ok) {
+                    setStatus("success");
+                    form.reset();
+                  } else {
+                    setStatus("error");
+                    setErrorMessage("Submission failed");
+                  }
+                } catch {
+                  setStatus("error");
+                  setErrorMessage("Network error");
+                }
+              }}
             >
-              <h2 className="mb-3 text-2xl font-bold text-black dark:text-white sm:text-3xl lg:text-2xl xl:text-3xl">
-                Need Help? Open a Ticket
-              </h2>
-              <p className="mb-12 text-base font-medium text-body-color">
-                Our support team will get back to you ASAP via email.
-              </p>
-              <form>
-                <div className="-mx-4 flex flex-wrap">
-                  <div className="w-full px-4 md:w-1/2">
-                    <div className="mb-8">
-                      <label
-                        htmlFor="name"
-                        className="mb-3 block text-sm font-medium text-dark dark:text-white"
-                      >
-                        Your Name
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Enter your name"
-                        className="border-stroke w-full rounded-xs border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-hidden focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
-                      />
-                    </div>
-                  </div>
-                  <div className="w-full px-4 md:w-1/2">
-                    <div className="mb-8">
-                      <label
-                        htmlFor="email"
-                        className="mb-3 block text-sm font-medium text-dark dark:text-white"
-                      >
-                        Your Email
-                      </label>
-                      <input
-                        type="email"
-                        placeholder="Enter your email"
-                        className="border-stroke w-full rounded-xs border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-hidden focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
-                      />
-                    </div>
-                  </div>
-                  <div className="w-full px-4">
-                    <div className="mb-8">
-                      <label
-                        htmlFor="message"
-                        className="mb-3 block text-sm font-medium text-dark dark:text-white"
-                      >
-                        Your Message
-                      </label>
-                      <textarea
-                        name="message"
-                        rows={5}
-                        placeholder="Enter your Message"
-                        className="border-stroke w-full resize-none rounded-xs border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-hidden focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
-                      ></textarea>
-                    </div>
-                  </div>
-                  <div className="w-full px-4">
-                    <button className="rounded-xs bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark">
-                      Submit Ticket
-                    </button>
-                  </div>
+              <div className="space-y-6">
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-[#00487c]">
+                    Your Name
+                  </label>
+                  <input
+                    name="name"
+                    type="text"
+                    placeholder="Enter your name"
+                    className="w-full rounded-xs border border-[#88d6fa] bg-white px-5 py-3 text-base text-[#00487c] outline-none placeholder:text-[#00487c]/50 focus:border-[#02a9f7] focus:ring-2 focus:ring-[#02a9f7]/25"
+                  />
                 </div>
-              </form>
-            </div>
-          </div>
-          <div className="w-full px-4 lg:w-5/12 xl:w-4/12">
-            <NewsLatterBox />
+
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-[#00487c]">
+                    Your Email
+                  </label>
+                  <input
+                    name="email"
+                    type="email"
+                    placeholder="Enter your email"
+                    className="w-full rounded-xs border border-[#88d6fa] bg-white px-5 py-3 text-base text-[#00487c] outline-none placeholder:text-[#00487c]/50 focus:border-[#02a9f7] focus:ring-2 focus:ring-[#02a9f7]/25"
+                  />
+                </div>
+
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-[#00487c]">
+                    Company
+                  </label>
+                  <input
+                    name="company"
+                    type="text"
+                    placeholder="Enter your company name"
+                    className="w-full rounded-xs border border-[#88d6fa] bg-white px-5 py-3 text-base text-[#00487c] outline-none placeholder:text-[#00487c]/50 focus:border-[#02a9f7] focus:ring-2 focus:ring-[#02a9f7]/25"
+                  />
+                </div>
+
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-[#00487c]">
+                    Your Message
+                  </label>
+                  <textarea
+                    name="message"
+                    rows={4}
+                    placeholder="Enter your message"
+                    className="w-full resize-none rounded-xs border border-[#88d6fa] bg-white px-5 py-3 text-base text-[#00487c] outline-none placeholder:text-[#00487c]/50 focus:border-[#02a9f7] focus:ring-2 focus:ring-[#02a9f7]/25"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={status === "sending"}
+                  className="w-full rounded-xs bg-[#00487c] py-3 text-base font-medium text-white transition hover:bg-[#02a9f7] focus:outline-none focus:ring-2 focus:ring-[#02a9f7]/35 disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  {status === "sending" ? "Sending…" : "Send Message"}
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
