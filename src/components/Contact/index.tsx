@@ -49,6 +49,18 @@ const Contact = () => {
                 const form = e.target as HTMLFormElement;
                 const formData = new FormData(form);
 
+                // Debug: always log that the handler fired and the gathered fields
+                try {
+                  // Some environments may mask console.debug — use console.log for reliability
+                  console.log("Contact form submit handler fired", {
+                    url: window.location.href,
+                    origin: window.location.origin,
+                    fields: Array.from(formData.entries()),
+                  });
+                } catch (dbgErr) {
+                  // ignore
+                }
+
                 // Prepare application/x-www-form-urlencoded body
                 const params = new URLSearchParams();
                 for (const [k, v] of Array.from(formData.entries())) {
@@ -56,7 +68,7 @@ const Contact = () => {
                 }
                 params.append("form-name", "Contact");
 
-                // 1) Try AJAX submit for best UX
+                // 1) Try AJAX submit for best UX — but continue to native fallback regardless
                 try {
                   const response = await fetch("/", {
                     method: "POST",
@@ -66,8 +78,9 @@ const Contact = () => {
 
                   if (response.ok) {
                     setStatus("success");
-                    form.reset();
-                    return;
+                    try {
+                      form.reset();
+                    } catch {}
                   } else {
                     setStatus("error");
                     setErrorMessage("Submission failed");
@@ -77,7 +90,7 @@ const Contact = () => {
                   console.warn("AJAX submit failed, attempting native fallback", err);
                 }
 
-                // 2) Native form fallback: submit via hidden iframe so Netlify receives a real POST
+                // 2) Native form fallback: always submit via hidden iframe so Netlify receives a native POST
                 try {
                   const iframeName = "netlify-hidden-iframe";
                   let iframe = document.getElementById(iframeName) as HTMLIFrameElement | null;
@@ -91,7 +104,6 @@ const Contact = () => {
 
                   const nativeForm = document.createElement("form");
                   // Submit to the absolute origin so the browser POST goes to Netlify's origin
-                  // (avoids edge cases where relative '/' might be rewritten/routed differently).
                   nativeForm.action = window.location.origin + "/";
                   nativeForm.method = "POST";
                   nativeForm.target = iframeName;
