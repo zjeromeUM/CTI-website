@@ -40,22 +40,29 @@ const Biography = () => {
               </h2>
 
               <div className="mt-4 space-y-4 text-base leading-relaxed text-[#00487c]/80">
-                <p>
-                  Zachary Jerome is the Co-founder and CEO of Connected Traffic
-                  Intelligence (CTI), where he works with transportation agencies to improve
-                  arterial operations using data-driven signal timing management.
-                </p>
-                <p>
-                  [Dummy text] His work focuses on leveraging connected/probe vehicle data to
-                  monitor, diagnose, and optimize signal timing without relying on permanent
-                  roadside detection infrastructure.
-                </p>
-                <p>
-                  [Dummy text] Prior to CTI, Zachary conducted research at the University of
-                  Michigan, developing methods for scalable, network-wide traffic signal
-                  performance monitoring and optimization.
-                </p>
-              </div>
+              <p>
+                Zachary Jerome is the Co-founder and CEO of Connected Traffic
+                Intelligence (CTI), where he works with transportation agencies,
+                consultants, and vendors to improve traffic management through the
+                use of connected vehicle data.
+              </p>
+              <p>
+                Zachary earned his Ph.D. in 2025 from the University of Michigan, where
+                he conducted research in Dr. Henry Liu's Mobility Transformation Lab.
+                His work has been featured in major news outlets, including the
+                Associated Press and <em>The Wall Street Journal</em>, and published in
+                <em> Nature Communications</em>.
+              </p>
+              <p>
+                His work has also been recognized through a variety of awards. In
+                2024, he received ITE's Daniel B. Fambro Student Paper Award for his
+                paper, <em>Determining Minimum Change Intervals from Vehicle Trajectory Data</em>.
+                In 2025, Zachary was honored with ITS Michigan's Rising Star Award in
+                recognition of his significant contributions to the field of
+                intelligent transportation systems.
+              </p>
+            </div>
+
 
               <div className="mt-6 flex flex-wrap gap-3">
                 <span className="rounded-full border border-[#88d6fa] px-3 py-1 text-xs font-semibold text-[#00487c]">
