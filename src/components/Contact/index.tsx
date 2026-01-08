@@ -44,33 +44,33 @@ const Contact = () => {
               name="Contact"
               method="POST"
               data-netlify="true"
-              onSubmit={async (e) => {
-                e.preventDefault();
-                setStatus("sending");
+              // onSubmit={async (e) => {
+              //   e.preventDefault();
+              //   setStatus("sending");
 
-                const form = e.target as HTMLFormElement;
-                const params = new URLSearchParams(new FormData(form) as any);
-                params.append("form-name", "Contact");
+              //   const form = e.target as HTMLFormElement;
+              //   const params = new URLSearchParams(new FormData(form) as any);
+              //   params.append("form-name", "Contact");
 
-                try {
-                  const response = await fetch("/", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                    body: params.toString(),
-                  });
+              //   try {
+              //     const response = await fetch("/", {
+              //       method: "POST",
+              //       headers: { "Content-Type": "application/x-www-form-urlencoded" },
+              //       body: params.toString(),
+              //     });
 
-                  if (response.ok) {
-                    setStatus("success");
-                    form.reset();
-                  } else {
-                    setStatus("error");
-                    setErrorMessage("Submission failed");
-                  }
-                } catch {
-                  setStatus("error");
-                  setErrorMessage("Network error");
-                }
-              }}
+              //     if (response.ok) {
+              //       setStatus("success");
+              //       form.reset();
+              //     } else {
+              //       setStatus("error");
+              //       setErrorMessage("Submission failed");
+              //     }
+              //   } catch {
+              //     setStatus("error");
+              //     setErrorMessage("Network error");
+              //   }
+              // }}
             >
               <input type="hidden" name="form-name" value="Contact" />
               <div className="space-y-6">
