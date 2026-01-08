@@ -50,19 +50,6 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Right-side decorative image */}
-            <div className="hidden w-full px-4 md:block md:w-1/2 lg:w-4/12 xl:w-5/12">
-              <div className="flex justify-end">
-                <Image
-                  src="/images/logo/cti-brain.svg" 
-                  alt="Footer accent graphic"
-                  width={25}
-                  height={25}
-                  className="opacity-60"
-                />
-              </div>
-            </div>
-
             {/* Removed Useful Links, Terms, and Support & Help sections */}
           </div>
 
