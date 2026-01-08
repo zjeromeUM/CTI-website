@@ -44,6 +44,7 @@ const Contact = () => {
               name="Contact"
               method="POST"
               data-netlify="true"
+              
               // onSubmit={async (e) => {
               //   e.preventDefault();
               //   setStatus("sending");
