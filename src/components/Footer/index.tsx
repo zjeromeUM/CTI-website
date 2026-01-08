@@ -26,12 +26,23 @@ const Footer = () => {
                     height={30}
                   />
                 </Link>
-                <p className="mb-9 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-                  Connected Traffic Intelligence - transforming traffic networks through connected vehicles
-                </p>
+                <p className="mb-4 text-base leading-relaxed text-body-color dark:text-body-color-dark">
+                    Connected Traffic Intelligence – transforming traffic networks through connected vehicles
+                  </p>
+
+                  <p className="mb-6 text-sm text-body-color dark:text-body-color-dark">
+                    <span className="font-medium">Contact:</span>{" "}
+                    <a
+                      href="mailto:contact@traffic-intelligence.com"
+                      className="underline decoration-[#02a9f7] underline-offset-4 transition hover:text-[#02a9f7]"
+                    >
+                      contact@traffic-intelligence.com
+                    </a>
+                  </p>
+
                 <div className="flex items-center">
                   <a
-                    href="/"
+                    href="https://www.linkedin.com/company/connected-traffic-intelligence/"
                     aria-label="LinkedIn"
                     target="_blank"
                     rel="noopener noreferrer"

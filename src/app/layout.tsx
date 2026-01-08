@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   const pathname = usePathname();
 
-  // Pages where you want the header to overlay the hero
+  // Pages where you want the header to overlay the hero d
   const heroPages = ["/", "/contact-us"];
   const isHeroPage = heroPages.includes(pathname);
 
