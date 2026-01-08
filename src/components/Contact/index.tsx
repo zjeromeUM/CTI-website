@@ -90,7 +90,9 @@ const Contact = () => {
                   }
 
                   const nativeForm = document.createElement("form");
-                  nativeForm.action = "/";
+                  // Submit to the absolute origin so the browser POST goes to Netlify's origin
+                  // (avoids edge cases where relative '/' might be rewritten/routed differently).
+                  nativeForm.action = window.location.origin + "/";
                   nativeForm.method = "POST";
                   nativeForm.target = iframeName;
                   // Ensure Netlify recognizes the POST
@@ -113,6 +115,7 @@ const Contact = () => {
                   nativeForm.appendChild(hidden);
 
                   document.body.appendChild(nativeForm);
+                  console.log("Netlify native fallback submitting to:", nativeForm.action);
                   nativeForm.submit();
 
                   setTimeout(() => {
