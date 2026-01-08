@@ -20,6 +20,8 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
+      {/* Hidden server-rendered form so Netlify detects the Contact form on the home page at build time */}
+      <NetlifyForm />
       <ScrollUp />
       <Hero />
       <HomeIntro />
