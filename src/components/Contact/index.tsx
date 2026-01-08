@@ -22,11 +22,6 @@ const Contact = () => {
               Get in Touch
             </h2>
 
-            <p className="mx-auto max-w-2xl text-center text-base leading-relaxed text-[#00487c]/80">
-              Connect with the Connected Traffic Intelligence team to learn how
-              our detector-free signal timing solutions can support your agency.
-            </p>
-
             <div className="mt-6 text-center">
               <p className="text-lg font-medium text-[#00487c]">
                 Email us at{" "}
