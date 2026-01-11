@@ -54,12 +54,15 @@ const Biography = () => {
                 <em> Nature Communications</em>.
               </p>
               <p>
-                His work has also been recognized through a variety of awards. In
-                2024, he received ITE's Daniel B. Fambro Student Paper Award for his
-                paper, <em>Determining Minimum Change Intervals from Vehicle Trajectory Data</em>.
-                In 2025, Zachary was honored with ITS Michigan's Rising Star Award in
-                recognition of his significant contributions to the field of
-                intelligent transportation systems.
+                His work has also been recognized through a variety of awards. The Council of 
+                University Transportation Centers awarded his dissertation, <em>Systematic Management 
+                of Traffic Signal Timing with Vehicle Trajectory Data</em>, the Milton Pikarsky 
+                Memorial Award for the best Doctoral dissertation in the field of science and 
+                technology in transportation studies. In 2024, he received ITE's Daniel B. Fambro Student 
+                Paper Award for his paper, <em>Determining Minimum Change Intervals from Vehicle 
+                Trajectory Data</em>. In 2025, Zachary was honored with ITS Michigan's Rising Star 
+                Award in recognition of his significant contributions to the field of intelligent 
+                transportation systems.
               </p>
             </div>
 
