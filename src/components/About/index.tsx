@@ -26,7 +26,7 @@ export default function AboutUs() {
               </h2>
 
               <p className="mt-4 text-base leading-relaxed text-[#00487c]/80">
-                Connected Traffic Intelligence LLC (CTI) makes vehicle telematics 
+                Connected Traffic Intelligence (CTI) makes vehicle telematics 
                 data (probe or vehicle trajectory data) more accessible to traffic engineers. 
                 We specialize in integrating traffic flow principles with advancements in AI to enable 
                 transformative solutions to traffic signal performance monitoring, diagnostics, and optimization, 

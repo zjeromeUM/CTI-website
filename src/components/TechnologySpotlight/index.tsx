@@ -10,7 +10,7 @@ export default function TechnologySpotlight() {
           </h2>
           <p className="mt-3 text-base text-[#00487c]/80">
             Born out of the Mobility Transformation Lab at the University of
-            Michigan, we build on over 10 years of cutting-edge research in
+            Michigan, we're built on over 10 years of cutting-edge research in
             connected vehicle-based traffic management.
           </p>
           <div className="mx-auto mt-4 h-[2px] w-24 bg-[#88d6fa]" />
@@ -28,7 +28,7 @@ export default function TechnologySpotlight() {
               predict how different timing strategies will perform before
               implementation
             </strong>
-            . As a result, CV data is often under-used for proactive signal
+            . As a result, CV data is often under-utilized for proactive signal
             optimization.
           </p>
 
@@ -43,7 +43,8 @@ export default function TechnologySpotlight() {
             <strong>40%</strong>—without installing any new roadside detection.
             The system is now being prototyped through a county-wide deployment
             with the <strong>Road Commission for Oakland County</strong>, funded
-            by a Stage 1 <strong>SMART Grant</strong> from the U.S. DOT.
+            by a Stage 1 <strong>SMART Grant</strong> from the U.S. Department of 
+            Transportation.
           </p>
 
           <div className="text-center">
