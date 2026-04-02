@@ -9,6 +9,24 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact Us | Connected Traffic Intelligence",
   description: "Get in touch with Connected Traffic Intelligence",
+  openGraph: {
+    title: "Connected Traffic Intelligence",
+    description: "Transforming traffic networks through connected vehicles",
+    url: "https://traffic-intelligence.com",
+    siteName: "Connected Traffic Intelligence",
+    images: [
+      {
+        url: "https://traffic-intelligence.com/og-image.jpg",
+        width: 1132,
+        height: 1132,
+      },
+    ],
+    type: "website",},
+
+  icons: {
+    icon: "/favicon.ico",              // browser tab icon
+    shortcut: "/favicon.ico",          // fallback
+  },
 };
 
 const ContactUsPage = () => {
