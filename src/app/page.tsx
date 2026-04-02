@@ -30,7 +30,8 @@ export const metadata: Metadata = {
 
   icons: {
     icon: "/favicon.ico",              // browser tab icon
-    shortcut: "/favicon.ico",          // fallback
+    shortcut: "/favicon.ico", // fallback
+    apple: "/favicon.ico",       
   },
   // other metadata
 };
