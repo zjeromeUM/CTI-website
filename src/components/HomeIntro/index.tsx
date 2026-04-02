@@ -16,6 +16,8 @@ const HomeIntro = () => {
         <div className="mx-auto max-w-4xl text-center">
           <h1
             className='
+              text-center
+              mx-auto
               font-poppins
               font-bold
               italic
