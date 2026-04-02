@@ -45,7 +45,7 @@ const Header = () => {
           : "bg-transparent"
       }`}
       >
-        <div className="container">
+        <div className="container px-4">
           <div className="relative -mx-4 flex items-center justify-between">
             <div className="w-60 max-w-full px-4 xl:mr-12 flex items-center">
               <Link href="/" className="inline-block">
@@ -58,7 +58,7 @@ const Header = () => {
                 />
               </Link>
             </div>
-            <div className="flex flex-1 items-center justify-between px-4 py-4 lg:py-6">
+            <div className="flex flex-1 items-center justify-between px-5 py-6 lg:py-6">
               <div>
                 <button
                   onClick={navbarToggleHandler}
