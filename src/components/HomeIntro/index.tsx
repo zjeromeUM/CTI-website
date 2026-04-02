@@ -12,7 +12,7 @@ const HomeIntro = () => {
       {/* Dark overlay */}
       <div className="pointer-events-none absolute inset-0 bg-black/20" />
 
-      <div className="container relative z-10 px-4 sm:px-6">
+      <div className="w-full flex justify-center relative z-10 px-4 sm:px-6">
         <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
           <h1
             className='
