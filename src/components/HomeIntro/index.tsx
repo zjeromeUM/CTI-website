@@ -12,8 +12,8 @@ const HomeIntro = () => {
       {/* Dark overlay */}
       <div className="pointer-events-none absolute inset-0 bg-black/20" />
 
-      <div className="container relative z-10">
-        <div className="mx-auto max-w-4xl text-center">
+      <div className="container relative z-10 px-4 sm:px-6">
+        <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
           <h1
             className='
               text-center
@@ -21,9 +21,8 @@ const HomeIntro = () => {
               font-poppins
               font-bold
               italic
-              tracking-widest
+              tracking-wide md:tracking-wider
               whitespace-normal
-              md:whitespace-nowrap
               text-[#88d6fa]
               text-3xl
               sm:text-4xl

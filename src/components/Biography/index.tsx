@@ -49,7 +49,7 @@ const Biography = () => {
               <p>
                 Zachary earned his Ph.D. in 2025 from the University of Michigan, where
                 he conducted research in Dr. Henry Liu's Mobility Transformation Lab.
-                His work has been featured in major news outlets, including the
+                His work has been featured in major news outlets, including the 
                 <em>Associated Press</em> and <em>The Wall Street Journal</em>, and published in
                 <em> Nature Communications</em>.
               </p>
